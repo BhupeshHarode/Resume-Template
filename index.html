@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Bhupesh Harode | Database Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+
+
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:rgba(0,0,0,.3);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-size:15px;
+}
+
+/* HERO */
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+header h1{
+font-size:65px;
+letter-spacing:2px;
+}
+
+.typing{
+font-size:24px;
+color:#00eaff;
+margin-top:10px;
+}
+
+.btn{
+  margin-top:30px;
+  padding:12px 35px;
+  background:#00eaff;
+  border-radius:30px;
+  color:black;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+
+/* Project Explore button */
+#projects .card .btn {
+  padding: 8px 20px;       /* smaller button size */
+  font-size: 14px;         /* smaller text */
+  margin-top: 15px;        /* space between text and button */
+  border-radius: 25px;     /* slightly rounded corners */
+  display: inline-block;   /* makes it center properly */
+  text-align: center;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* SECTION */
+
+section{
+padding:90px 10%;
+}
+
+h2{
+text-align:center;
+margin-bottom:50px;
+font-size:40px;
+}
+
+/* GLASS CARD */
+
+
+.card{
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(12px);
+  border-radius:15px;
+  padding:30px;
+  transition:.4s;
+}
+
+
+/* Add 3D hover effect for project cards */
+#projects .grid {
+  perspective: 1000px; /* allows 3D effect */
+}
+
+#projects .card {
+  transform-style: preserve-3d; /* needed for 3D rotation */
+  transition: transform 0.4s, box-shadow 0.4s; /* smooth hover */
+}
+
+#projects .card:hover {
+  transform: translateY(-10px) scale(1.03) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 0 25px #00eaff;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+/* SKILLS */
+
+.skill{
+margin:20px 0;
+}
+
+.bar{
+height:10px;
+background:#1e293b;
+border-radius:20px;
+overflow:hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: #00eaff;
+  width: 0; /* start from 0 */
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.sql { animation-name: fill-sql; }
+.plsql { animation-name: fill-plsql; }
+.db { animation-name: fill-db; }
+.uat { animation-name: fill-uat; }
+
+@keyframes fill-sql { to { width: 70%; } }
+@keyframes fill-plsql { to { width: 65%; } }
+@keyframes fill-db { to { width: 60%; } }
+@keyframes fill-uat { to { width: 94%; } }
+
+/* TIMELINE */
+
+.timeline{
+border-left:3px solid #00eaff;
+padding-left:30px;
+}
+
+.timeline div{
+margin-bottom:30px;
+}
+
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+font-size:18px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:.6;
+}
+
+.timeline{
+position:relative;
+margin:auto;
+max-width:800px;
+}
+
+.timeline::after{
+content:'';
+position:absolute;
+width:4px;
+background:#00eaff;
+top:0;
+bottom:0;
+left:50%;
+margin-left:-2px;
+}
+
+.timeline-item{
+padding:20px 40px;
+position:relative;
+width:50%;
+animation:slideUp 1s ease;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-dot{
+width:15px;
+height:15px;
+background:#00eaff;
+border-radius:50%;
+position:absolute;
+top:20px;
+right:-8px;
+}
+
+.timeline-content{
+background:rgba(255,255,255,.05);
+padding:20px;
+border-radius:10px;
+backdrop-filter:blur(10px);
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+pre{
+background:#020617;
+padding:20px;
+border-radius:10px;
+color:#00eaff;
+overflow-x:auto;
+font-family:monospace;
+}
+
+.sql{ width:0; animation:fill-sql 2s forwards; }
+.plsql{ width:0; animation:fill-plsql 2s forwards; }
+.db{ width:0; animation:fill-db 2s forwards; }
+.uat{ width:0; animation:fill-uat 2s forwards; }
+
+@keyframes fill-sql { to { width: 98%; } }
+@keyframes fill-plsql { to { width: 65%; } }
+@keyframes fill-db { to { width: 60%; } }
+@keyframes fill-uat { to { width: 94%; } }
+
+pre{
+background:#010409;
+border-left:4px solid #00eaff;
+padding:20px;
+border-radius:10px;
+color:#00eaff;
+font-size:14px;
+overflow-x:auto;
+}
+
+#experience .timeline::after {
+  display: none;  /* hides the blue line for Experience section */
+}
+
+#about .card {
+  line-height: 1.6; /* better spacing for text */
+  font-size: 16px;  /* slightly bigger for readability */
+}
+
+.card {
+  background: rgba(255,255,255,0.15); /* normal transparency */
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease; /* smooth animation */
+}
+
+.card:hover {
+  background: rgba(255,255,255,0.25); /* hover par thoda bright */
+  transform: translateY(-5px) scale(1.02); /* thoda upar aur bada */
+  box-shadow: 0 0 25px #00eaff; /* blue glow effect */
+}
+
+#experience .timeline-item:hover {
+  background: rgba(0, 238, 255, 0.15); /* thoda blue-ish transparent */
+  transform: translateY(-5px) scale(1.02); /* thoda upar aur bada */
+  box-shadow: 0 0 25px #00eaff; /* blue glow */
+  transition: all 0.3s ease;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<nav>
+
+<b>Bhupesh</b>
+
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#sql-demo">SQL Demo</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<header>
+
+<h1>Bhupesh Harode</h1>
+
+<!-- Direct Role -->
+<div class="role" style="font-size:28px; color:#00eaff; margin-top:10px;">
+Sr. Support Engineer
+</div>
+
+<!-- Skills Field -->
+<div class="skills-field" style="font-size:20px; color:white; margin-top:20px; max-width:600px; text-align:center;">
+Skills: SQL, PL/SQL, Database Support, UAT Support, Banking Software, Production Support
+</div>
+
+<a href="resum.pdf" class="btn">Download Resume</a>
+
+</header>
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<div class="card">
+
+     I am a motivated IT professional with 2.5+ years of experience in database support, PL/SQL development, and banking software.  
+    Skilled in SQL, PL/SQL, database troubleshooting, production & UAT support, and collaborating with development teams to ensure smooth operations.  
+    Currently working as a Sr. Support Engineer, focusing on enhancing banking applications and delivering reliable database solutions.
+  
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>Technical Skills</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="skill">
+<p>Oracle SQL</p>
+<div class="bar"><span class="sql"></span></div>
+</div>
+
+<div class="skill">
+<p>PL/SQL</p>
+<div class="bar"><span class="plsql"></span></div>
+</div>
+
+<div class="skill">
+<p>Database Support</p>
+<div class="bar"><span class="db"></span></div>
+</div>
+
+<div class="skill">
+<p>UAT Support</p>
+<div class="bar"><span class="uat"></span></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 style="text-align:center;">Experience</h2>
+
+<div class="timeline" style="border-left:none; padding-left:0; max-width:600px; margin:0 auto;">
+
+  <div class="timeline-item" style="width:100%; left:0; text-align:center; margin-bottom:40px;">
+    <div class="timeline-content" style="display:inline-block; text-align:left; max-width:500px;">
+      <h3>Sr. Support Engineer</h3>
+      <p>Virtual Galaxy Infotech Ltd</p>
+      <span>June 2023 – Present</span>
+      <p>
+        Working on banking software application support, SQL query development,
+        database troubleshooting and production/UAT support.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Database Support Automation</h3>
+
+<p>SQL & PL/SQL automation system.</p>
+
+<a href="project1.html" class="btn">Explore</a>
+
+</div>
+
+<div class="card">
+
+<h3>Live KYC Module</h3>
+
+<p>KYC compliance banking module.</p>
+
+<a href="project2.html" class="btn">Explore</a>
+
+</div>
+
+<div class="card">
+
+<h3>Demand Module Implementation</h3>
+
+<p>Bank CBS demand module system.</p>
+
+<a href="project3.html" class="btn">Explore</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="sql-demo">
+
+<h2>SQL Query Showcase</h2>
+
+<div class="card">
+
+<p>Banking Data Validation Query:</p>
+
+<pre>
+SELECT customer_id,
+       account_number,
+       balance
+FROM   bank_accounts
+WHERE  balance < 1000
+ORDER BY balance ASC;
+</pre>
+
+</div>
+
+<div class="card">
+
+<p>Transaction Monitoring Query:</p>
+
+<pre>
+SELECT account_number,
+       SUM(amount) total_transaction
+FROM   transactions
+WHERE  transaction_date > SYSDATE - 7
+GROUP BY account_number
+ORDER BY total_transaction DESC;
+</pre>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="contact">
+
+<p>Email: bhupeshharode@gmail.com</p>
+<p>Phone: 8767326237 / 7757860152</p>
+<p>
+<a href="https://www.linkedin.com/in/bhupeshharode" target="_blank" style="color:#00eaff;text-decoration:none;">LinkedIn</a> | 
+<a href="https://github.com/bhupeshharode" target="_blank" style="color:#00eaff;text-decoration:none;">GitHub</a>
+</p>
+
+</div>
+
+</section>
+<footer>
+
+© 2026 Bhupesh Harode
+
+</footer>
+
+<script>
+
+/* typing */
+
+const text=["Database Engineer","PLSQL Developer","Application Support Engineer"]
+
+let i=0
+let j=0
+let current=""
+let letter=""
+
+function type(){
+
+if(i===text.length){
+i=0
+}
+
+current=text[i]
+letter=current.slice(0,++j)
+
+document.getElementById("typing").textContent=letter
+
+if(letter.length===current.length){
+i++
+j=0
+}
+
+setTimeout(type,120)
+
+}
+
+type()
+
+/* particles */
+
+particlesJS("particles-js",{
+
+particles:{
+
+number:{value:90},
+
+size:{value:3},
+
+move:{speed:1},
+
+line_linked:{enable:true}
+
+}
+
+})
+
+</script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 90 },
+    size: { value: 3 },
+    move: { speed: 1 },
+    line_linked: { enable: true }
+  }
+});
+</script>
+
+</body>
+</html>
