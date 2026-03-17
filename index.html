@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 
+ 
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -34,7 +36,6 @@ scroll-behavior:smooth;
 position:fixed;
 width:100%;
 height:100%;
-z-index:-1;
 }
 
 /* NAVBAR */
@@ -328,6 +329,299 @@ overflow-x:auto;
   transition: all 0.3s ease;
 }
 
+/* SKILLS GRID NEW */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  perspective: 1000px;
+}
+
+/* GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+/* GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* PHONE SHAPE CARD */
+.skill-box {
+  position: relative;
+  width: 160px;
+  height: 280px;
+  border-radius: 30px; /* mobile shape */
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: gold;
+  background: #020617;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  z-index: 1;
+
+  transition: 0.4s;
+}
+
+/* FIRE BORDER */
+.skill-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 30px;
+  background: linear-gradient(
+    0deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #ff7300,
+    #ff0000
+  );
+  background-size: 400%;
+  z-index: -1;
+  animation: fireMove 5s linear infinite;
+  filter: blur(10px);
+}
+
+/* INNER BODY */
+.skill-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 25px;
+  background: #020617;
+  z-index: -1;
+}
+
+/* HOVER EFFECT */
+.skill-box:hover {
+  transform: scale(1.1) rotateY(10deg);
+  box-shadow: 0 0 40px orange;
+}
+
+/* TEXT GLOW */
+.skill-box span {
+  text-shadow: 0 0 10px orange, 0 0 20px red;
+}
+
+/* FIRE ANIMATION */
+@keyframes fireMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* HOVER EFFECT */
+.skill-box:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.08);
+  box-shadow: 0 0 30px gold;
+  background: rgba(255,215,0,0.2);
+}
+
+/* OPTIONAL GLOW TEXT */
+.skill-box::after {
+  content: "";
+  position: absolute;
+}
+
+/* Smooth background transition */
+body {
+  transition: background 0.8s ease;
+}
+
+/* Jab skills active ho */
+body.skills-active {
+  background: radial-gradient(circle at center, #1a0f00, #000000);
+}
+
+/* default = fire OFF */
+.skill-box::before {
+  opacity: 0;
+  animation: none;
+}
+
+/* jab active ho tab fire ON */
+.skills-active .skill-box::before {
+  opacity: 1;
+  animation: fireMove 5s linear infinite;
+}
+
+#skills {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  overflow: hidden;
+}
+
+#skills::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #1a0f00, #000000);
+  
+  opacity: 0;
+  transition: opacity 0.6s ease;
+
+  z-index: 0; /* FIX */
+}
+
+#skills.active::before {
+  opacity: 1;
+}
+
+#skills > * {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background: #020617;
+}
+
+#skills.active {
+  background: radial-gradient(circle at center, #1a0f00, #000000);
+}
+
+html, body {
+  background: #020617;
+}
+
+#projects {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+#projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8") center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 0;
+}
+
+#projects.active::before {
+  opacity: 0.3;
+}
+
+#projects > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-4px, 4px); }
+  50% { transform: translate(4px, -4px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+#projects.active .card {
+  animation: shake 0.4s ease;
+}
+
+/* Keyboard background */
+#projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8") center/cover no-repeat;
+  opacity: 0;
+  transition: 0.8s;
+  z-index: 0;
+}
+
+#projects::after {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, white, transparent 70%);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ACTIVE STATE */
+#projects.active::before {
+  opacity: 0.25; /* background visible */
+}
+
+#projects.active::after {
+  animation: smash 0.8s ease forwards;
+}
+
+
+@keyframes smash {
+  0% {
+    top: -200px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.5);
+  }
+  100% {
+    top: 150px;
+    opacity: 0;
+    transform: translateX(-50%) scale(2);
+  }
+}
+
+#projects.active .card {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
+
+.profile-3d {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+}
+
+.profile-3d img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+
+  box-shadow: 0 0 30px #00eaff;
+
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+/* 3D HOVER */
+.profile-3d:hover img {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 0 50px #00eaff;
+}
+
 </style>
 </head>
 
@@ -351,6 +645,10 @@ overflow-x:auto;
 </nav>
 
 <header>
+
+   <div class="profile-3d">
+  <img src="image1.jpeg" alt="Bhupesh">
+</div>
 
 <h1>Bhupesh Harode</h1>
 
@@ -387,31 +685,18 @@ Skills: SQL, PL/SQL, Database Support, UAT Support, Banking Software, Production
 
 <h2>Technical Skills</h2>
 
-<div class="grid">
+<div class="skills-grid">
 
-<div class="card">
-
-<div class="skill">
-<p>Oracle SQL</p>
-<div class="bar"><span class="sql"></span></div>
-</div>
-
-<div class="skill">
-<p>PL/SQL</p>
-<div class="bar"><span class="plsql"></span></div>
-</div>
-
-<div class="skill">
-<p>Database Support</p>
-<div class="bar"><span class="db"></span></div>
-</div>
-
-<div class="skill">
-<p>UAT Support</p>
-<div class="bar"><span class="uat"></span></div>
-</div>
-
-</div>
+  <div class="skill-box">Oracle SQL</div>
+  <div class="skill-box">PL/SQL</div>
+  <div class="skill-box">Database Support</div>
+  <div class="skill-box">UAT Support</div>
+  <div class="skill-box">HTML</div>
+  <div class="skill-box">CSS</div>
+  <div class="skill-box">JAVA</div>
+  <div class="skill-box">NODEJS</div>
+  <div class="skill-box">mongodb shell</div>
+  <div class="skill-box">AI Learning</div>
 
 </div>
 
@@ -474,42 +759,6 @@ Skills: SQL, PL/SQL, Database Support, UAT Support, Banking Software, Production
 <a href="project3.html" class="btn">Explore</a>
 
 </div>
-
-</div>
-
-</section>
-
-<section id="sql-demo">
-
-<h2>SQL Query Showcase</h2>
-
-<div class="card">
-
-<p>Banking Data Validation Query:</p>
-
-<pre>
-SELECT customer_id,
-       account_number,
-       balance
-FROM   bank_accounts
-WHERE  balance < 1000
-ORDER BY balance ASC;
-</pre>
-
-</div>
-
-<div class="card">
-
-<p>Transaction Monitoring Query:</p>
-
-<pre>
-SELECT account_number,
-       SUM(amount) total_transaction
-FROM   transactions
-WHERE  transaction_date > SYSDATE - 7
-GROUP BY account_number
-ORDER BY total_transaction DESC;
-</pre>
 
 </div>
 
@@ -599,7 +848,64 @@ particlesJS("particles-js", {
     line_linked: { enable: true }
   }
 });
+
+
+
 </script>
+
+<script>
+const profile = document.querySelector(".profile-3d");
+
+profile.addEventListener("mousemove", (e) => {
+  const rect = profile.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const rotateX = -(y - rect.height / 2) / 10;
+  const rotateY = (x - rect.width / 2) / 10;
+
+  profile.querySelector("img").style.transform =
+    `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+});
+
+profile.addEventListener("mouseleave", () => {
+  profile.querySelector("img").style.transform =
+    "rotateX(0) rotateY(0) scale(1)";
+});
+</script>
+
+<script>
+
+/* PROJECT SCROLL EFFECT */
+const projectSection = document.getElementById("projects");
+
+window.addEventListener("scroll", () => {
+  const rect = projectSection.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight * 0.6 && rect.bottom > 0) {
+    projectSection.classList.add("active");
+  } else {
+    projectSection.classList.remove("active");
+  }
+});
+
+</script>
+
+<script>
+const skillsSection = document.getElementById("skills");
+
+window.addEventListener("scroll", () => {
+  const rect = skillsSection.getBoundingClientRect();
+
+  if (rect.top <= window.innerHeight * 0.6 && rect.bottom >= window.innerHeight * 0.3) {
+    skillsSection.classList.add("active");
+  } else {
+    skillsSection.classList.remove("active");
+  }
+});
+</script>
+
+
 
 </body>
 </html>
