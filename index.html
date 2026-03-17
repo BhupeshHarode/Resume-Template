@@ -33,9 +33,11 @@ scroll-behavior:smooth;
 }
 
 #particles-js{
-position:fixed;
-width:100%;
-height:100%;
+  position:fixed;
+  width:100%;
+  height:100%;
+  /* z-index:-1;              👈 background me bhej diya */
+  pointer-events:none;     👈 clicks pass hone dena */
 }
 
 /* NAVBAR */
